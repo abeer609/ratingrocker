@@ -15,6 +15,7 @@ import os
 import dj_database_url
 
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -107,7 +108,7 @@ WSGI_APPLICATION = "reviews.wsgi.application"
 DATABASES = {
     'default': dj_database_url.config(
         # Replace this value with your local database's connection string.
-        default='postgresql://ratingrocker_user:ZAxQ0jIEffBejsJY9OzwW5lVZWqtkisJ@dpg-ctclrv0gph6c73aslp50-a/ratingrocker',
+        default=os.environ.get('DATABASE_URL'),
         conn_max_age=600
     )
 }
