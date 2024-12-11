@@ -4,5 +4,5 @@ media
 Procfile
 db.sqlite3
 runtime.txt
-
 .env
+.DS_Store
