@@ -1,0 +1,108 @@
+{% extends 'base.html' %} {% load static %} {% block content%}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+
+<script>
+    setPageTitle("Top Categories");
+  </script>
+
+<style>
+    a{
+        text-decoration: none;
+    }
+</style>
+<!--<section class="hero_single version_1 test" style="background-image: url(/static/images/test.jpg);">
+    <div class="wrapper">
+        <div class="container">
+            <h3>Every Review is an Experience!</h3>
+            <p>Check Ratings of Businesses, Read Reviews &amp; Buy</p>
+            <div class="row justify-content-center">
+                <div class="col-lg-9">
+                <form method="post" action="grid-listings-filterstop.html">
+                    <div class="row no-gutters custom-search-input-2">
+                        <div class="col-lg-7">
+                            <div class="form-group">
+                                <input class="form-control" type="text" placeholder="What are you looking for...">
+                                <i class="icon_search"></i>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <select class="wide" style="display: none;">
+                                <option>All Categories</option>	
+                                {% for category in categories %}
+                                <option>{{category.category_name}}</option>
+                                {% endfor %}
+                            </select><div class="nice-select wide" tabindex="0"><span class="current">All Categories</span><ul class="list"><li data-value="All Categories" class="option selected">All Categories</li><li data-value="Beauty" class="option">Beauty</li><li data-value="Electronics" class="option">Electronics</li><li data-value="Hotels" class="option">Hotels</li></ul></div>
+                        </div>
+                        <div class="col-lg-2">
+                            <input type="submit" value="Search">
+                        </div>
+                    </div>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>-->
+<div class="container margin_60_35" style="padding-top: 90px">
+  <div class="main_title_2">
+    <h1>Top Categories</h1>
+  </div>
+  <div class="row justify-content-center">
+    {% for category in all_categories %}
+    <div class="col-lg-4 col-md-6 col-12 product-card" style="margin-bottom: 13px;">
+      <div class="card">
+        <div class="carousel slide product-carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <a href="{% url 'category_products' category.id category.slug %}">
+              <img class="d-block w-100" src="{{ category.image }}" alt="" />
+            </a>
+            </div>
+          </div>
+          <!-- Navigation buttons -->
+        </div>
+        <div class="card-body">
+          <a
+            style="text-decoration: none; text-align: center"
+            href="{% url 'category_products' category.id category.slug %}"
+          >
+            <h3  style="font-size: 1.1774rem">{{ category.category_name }}</h3>
+          </a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+<style>
+  @media screen and (min-width: 700px) {
+    .custom-search-input-2 {
+      border-top-right-radius: 30px;
+      border-bottom-right-radius: 30px;
+      border-top-left-radius: 30px;
+      border-bottom-left-radius: 30px;
+    }
+    .custom-search-input-2 input[type="submit"] {
+      border-top-right-radius: 30px;
+      border-bottom-right-radius: 30px;
+    }
+    .form-control {
+      border-top-left-radius: 30px;
+      border-bottom-left-radius: 30px;
+    }
+  }
+  @media screen and (max-width: 700px) {
+    .form-control,
+    .nice-select {
+      border-radius: 33px;
+    }
+    .custom-search-input-2 i {
+      margin-right: 26px;
+    }
+    [type="submit"] {
+      border-radius: 33px;
+    }
+  }
+</style>
+
+{% endblock %}

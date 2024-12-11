@@ -1,0 +1,159 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load range_filter %}
+{% block extra_head %}
+<link rel="canonical" href="https://www.ratingrocker.com/" />
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<link rel="stylesheet" href="{% static 'css/slick-theme.css' %}">
+<!-- <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async></script> -->
+
+<style>
+    .slick-prev:before, .slick-next:before{
+        color: gray !important
+    }
+    </style>
+
+{% endblock extra_head %}
+{% block content%}
+
+<!-- MODIFY ONLY THIS PART OF CODE FOR SALE -->
+<!-- SALE CODE STARTS HERE -->
+<!-- UNCOMMENT THE BELOW CODE FROM <div> TILL </div> -->
+
+<!-- <div class="alert alert-success alert-dismissible" role="alert">
+       <h4 class="alert-heading" style="text-align: center">SALE IS LIVE!</h4> 
+       <p style="text-align: center; font-weight: bold; font-size: 20px">Flat 50% is off on all electronics items! Shop NOW</p> <!--COPY THIS TAG AND PASTE IN NEXT LINE FOR MORE PRODUCTS SALE ONLY CHANGE THE CONTENT-->
+<!--        <hr> -->
+       <!-- <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p> -->
+<!--        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
+<!-- </div> -->
+
+<!-- SALE CODE ENDS HERE -->
+<script>
+    setPageTitle("Rating Rocker - Read Product Reviews");
+  </script>
+<div class="container margin_60_35">
+    <div class="row">
+        <div class="col-lg-6">
+            <div id="slider" class="bg-light mb-5 lg-mb-0 rounded-2">
+                {% for image in product.images.all %}
+                    <div style="height: 470px;">
+                        <img class="img-fluid d-block m-auto"  style="height: 100%; object-fit: contain;" src="{{image.url}}" alt="" srcset="">
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <h4>{{product.name}}</h4>
+            <a 
+            style="width: fit-content;"
+            target="_blank"
+                href="{{product.affiliate_link}}"
+                class="mt-4 btn btn-primary fw-bold rounded-pill d-flex align-items-center gap-2">
+                <span>Buy now</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"/>
+                    <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"/>
+                </svg>
+                </a>
+            <div class="fs-6 mt-4 list">
+                <h5 class="fw-bold fs-6">About this item</h5>
+                {{product.description | safe }}
+            </div>
+        </div>
+    </div>
+       
+
+       <!-- reviews -->
+        <h4 class="mt-5 mb-2 fw-medium">Customer Reviews</h4>
+        <p class="text-secondary">See what customer thinks about this product</p>
+        <div class="row" data-masonry='{"percentPosition": true }'>
+            {% if reviews %}
+            {% for review in reviews %}
+            <div class="col-xl-4 col-lg-6 col-md-6 isotope-item latest" >
+                <div class="review_listing">
+                    {% if review.image %}
+                        <img style="width:100%;margin-bottom:10px" src="{{ review.image.url }}" alt="Review Image">
+                    {% endif %}
+
+                    <div class="clearfix add_bottom_15">
+                        <span class="rating">
+                            {% for i in ''|rjust:review.rating %}
+                            {% if i == ' ' %}
+                                <i class="icon_star"></i>
+                            {% else %}
+                                <i class="icon_star empty"></i>
+                            {% endif %}
+                        {% endfor %}
+                            <em>{{review.rating}}/5.00</em>
+                        </span>
+                    </div>
+                    <h3><strong class="fw-bold">{{ review.username }}</strong> reviewed</h3>
+                    <h4>"{{review.title}}"</h4>
+                    <p class="fs-6 mb-0">
+                        {{review.text}}
+                    </p>
+                </div>
+            </div>
+            {% endfor %}
+       {% else %}
+               <p>No reviews yet. Please left your reviews!</p>
+       {% endif %}
+        </div>
+       
+    </div>
+<style>
+    .rating-star,
+    .rating:hover .rating-star {
+            background: url({% static 'images/stars.svg' %}) 0 -38px;
+        }
+</style>
+<style>
+    .menu_fixedss {
+        position: inherit;
+        display: flex;
+        justify-content: space-between;
+        background: white;
+        align-items: center;
+    }
+
+    #logo {
+        float: unset
+    }
+
+    #menu * {
+        color: white
+    }
+
+    .form {
+        margin: 10px 0px
+    }
+
+    @media screen and (min-width:700px) {
+        .form {
+            max-width: 620px;
+            margin: auto;
+            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+            padding: 30px;
+        }
+    }
+</style>
+{% endblock %}
+
+
+{% block script %}
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+<script>
+    $(document).ready(function(){
+        console.log('hello world')
+        $("#slider").slick({
+            infinite: true,
+            autoplay: false,
+            speed: 300,
+            lazyLoad: 'ondemand'
+        })
+});
+</script>
+{% endblock %}

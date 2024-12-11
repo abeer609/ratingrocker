@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content%}
+
+<script>
+    setPageTitle("Rating Rocker - Write Reviews");
+  </script>
+<div class="container margin_60_35">
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="box_general write_review">
+                <h1>Write a review of {{product.name}}</h1>
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="rating_submit">
+                    <div class="form-group">
+                    <label class="d-block">Overall rating <span style="color: red">*</span></label>
+                    <span class="rating">
+                        <input  type="radio" class="rating-input" id="5_star" name="rating-input" value="5" required><label for="5_star" class="rating-star"></label>
+                        <input type="radio" class="rating-input" id="4_star" name="rating-input" value="4"><label for="4_star" class="rating-star"></label>
+                        <input type="radio" class="rating-input" id="3_star" name="rating-input" value="3"><label for="3_star" class="rating-star"></label>
+                        <input type="radio" class="rating-input" id="2_star" name="rating-input" value="2"><label for="2_star" class="rating-star"></label>
+                        <input type="radio" class="rating-input" id="1_star" name="rating-input" value="1"><label for="1_star" class="rating-star"></label>
+                    </span>
+                    </div>
+                </div>
+                <!-- /rating_submit -->
+                <div class="form-group">
+                    <label>Your Name <span style="color: red">*</span></label>
+                    <input required class="form-control" name="username" type="text" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label>Title of your review <span style="color: red">*</span></label>
+                    <input required class="form-control" name="title" type="text" placeholder="If you could say it in one sentence, what would you say?" required>
+                </div>
+                <div class="form-group">
+                    <label>Your review <span style="color: red">*</span></label>
+                    <textarea required class="form-control" name="text" style="height: 180px;" placeholder="Write your review to help others learn about this online business" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Add photo (optional)</label>
+                    <div class="fileupload"><input name="image" type="file" accept="image/*"></div>
+                </div>
+                <button type="submit" class="btn_1">Submit review</button>
+            </form>
+            </div>
+        </div>
+        <!-- /col -->
+        <div class="col-lg-4">
+            <div class="latest_review">
+                <h4>Recent reviews<br>for {{product.name}}</h4>
+                <div class="review_listing">
+                    <div class="clearfix add_bottom_10">
+                        <figure><img src="img/avatar3.jpg" alt=""></figure>
+                        <span class="rating"><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star empty"></i><em>4.50/5.00</em></span>
+                        <small>Shops</small>
+                    </div>
+                    <h3><strong>Jhon Doe</strong></h3>
+                    <h4>"Avesome Experience"</h4>
+                    <p>Et nec tantas accusamus salutatus, sit commodo veritus te</p>
+                    <ul class="clearfix">
+                        <li><small>26.08.2018</small></li>
+                        <li><a href="{% url 'read_review' product.id product.slug %}" class="btn_1 small">Read review</a></li>
+                    </ul>
+                </div>
+                <!-- /review_listing -->
+                <div class="review_listing">
+                    <div class="clearfix add_bottom_10">
+                        <figure><img src="img/avatar4.jpg" alt=""></figure>
+                        <span class="rating"><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star empty"></i><em>4.50/5.00</em></span>
+                        <small>Shops</small>
+                    </div>
+                    <h3><strong>Jhon Doe</strong></h3>
+                    <h4>"Avesome Experience"</h4>
+                    <p>Et nec tantas accusamus salutatus, sit commodo veritus te</p>
+                    <ul class="clearfix">
+                        <li><small>26.08.2018</small></li>
+                        <li><a href="{% url 'read_review' product.id product.slug %}" class="btn_1 small">Read review</a></li>
+                    </ul>
+                </div>
+                <!-- /review_listing -->
+            </div>
+            <!-- /latest_review -->
+            
+        </div>
+    </div>
+    <!-- /row -->
+</div>
+<style>
+    .rating-star,
+.rating:hover .rating-star {
+        background: url({% static 'images/stars.svg' %}) 0 -38px;
+    }
+</style>
+<style>
+    .menu_fixedss {
+        position: inherit;
+        display: flex;
+        justify-content: space-between;
+        background: white;
+        align-items: center;
+    }
+
+    #logo {
+        float: unset
+    }
+
+    #menu * {
+        color: white
+    }
+
+    .form {
+        margin: 10px 0px
+    }
+
+    @media screen and (min-width:700px) {
+        .form {
+            max-width: 620px;
+            margin: auto;
+            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+            padding: 30px;
+        }
+    }
+</style>
+
+{% endblock %}

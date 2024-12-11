@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Page not found {% endblock %}
+{% block content %}
+<div class="container-fluid pt-5" style="height: 100vh; background-color: white;">
+    <div class="d-flex justify-content-center">
+        <img class="d-block" style="width:90%;" src="{% static 'images/page-not-found.png' %}" alt="page not found">
+    </div>
+</div>
+{% endblock %}

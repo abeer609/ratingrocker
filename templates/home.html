@@ -1,0 +1,398 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+<link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script>
+    setPageTitle("Rating Rocker - Home");
+  </script>
+
+<style>
+    .main_title_3 a {
+        display: inline-block;
+        right: 0;
+        bottom: 0;
+        position: absolute;
+        font-weight: bolder;
+        font-size: 20px;
+    }
+
+    @media (max-width: 570px) {
+        .carousel {
+            margin-top: 51px;
+        }
+    }
+
+    /* Media query for small screens */
+    @media (min-width: 571px) and (max-width: 768px) {
+        .carousel {
+            margin-top: 50px;
+        }
+    }
+
+    /* Media query for medium screens */
+    @media (min-width: 769px) and (max-width: 992px) {
+        .carousel {
+            margin-top: 45px;
+        }
+    }
+
+    /* Media query for large screens */
+    @media (min-width: 993px) {
+        .carousel {
+            margin-top: 71px;
+        }
+    }
+
+    .review_listing h3 {
+        font-size: 14px;
+        font-size: 0.875rem;
+        color: #999;
+        margin: 8px 0 3px 0;
+    }
+
+    .review_listing h3 strong {
+        color: black;
+        font-weight: 500;
+        font-size: 16px;
+        float: right;
+    }
+
+    .review_listing {
+        background-color: #fff;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        -ms-border-radius: 3px;
+        border-radius: 3px;
+        padding: 25px;
+        box-sizing: content-box;
+        box-shadow: 0 2px 4px rgba(3, 27, 78, 0.06);
+        margin-bottom: 30px;
+        border: 1px solid #dcaa3a;
+    }
+
+    .rating {
+        display: inline-block;
+        position: relative;
+        padding-top: 10px;
+    }
+
+
+
+
+
+
+    .banners {
+        position: relative;
+        width: 100%;
+        height: 50px;
+        padding: 0px 5px;
+        background: black;
+        overflow: hidden;
+        user-select: none;
+    }
+
+    .banners p {
+        font-size: 20px;
+        font-weight: 700;
+        font-style: italic;
+        position: absolute;
+        text-wrap: nowrap;
+        padding-top: 11px;
+        top: 0;
+        color: white !important;
+        font-style: italic;
+        pointer-events: none;
+
+    }
+
+    @keyframes moveLeftText {
+        to {
+            left: 0%;
+        }
+    }
+
+    @keyframes moveCenterText {
+        to {
+            left: 100%;
+        }
+    }
+
+    @media (max-width: 999px) {
+        .banners p {
+            font-size: 15px;
+            white-space: nowrap;
+        }
+    }
+
+    @media (max-width: 520px) {
+        .banners p {
+            font-size: 10px;
+            white-space: nowrap;
+        }
+    }
+
+    @media (max-width: 700px) {
+        .banners p {
+            font-size: 10px;
+            white-space: nowrap;
+        }
+    }
+
+    @media (max-width: 450px) {
+        .banners {
+            height: 25px;
+        }
+
+        .banners p {
+            padding-top: 8px;
+            font-size: 6px;
+            white-space: nowrap;
+        }
+    }
+
+    @media (max-width: 315px) {
+        .banners p {
+            font-size: 3px;
+            white-space: nowrap;
+        }
+    }
+</style>
+
+<section>
+    <div style="background-color: #eef3f7">
+        <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3"
+                    aria-label="Slide 4"></button>
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="4"
+                    aria-label="Slide 5"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="5000">
+                    <img src="https://imgpile.com/images/D0rIeg.jpg" class="d-block w-100" alt="clothes" />
+                    <div class="carousel-caption d-none d-md-block">    
+                    </div>
+                </div>
+                <div class="carousel-item" data-bs-interval="5000">
+                    <img src="https://imgpile.com/images/D0mjBh.jpg" class="d-block w-100" alt="beauty" />
+                    <div class="carousel-caption d-none d-md-block">
+                    </div>
+                </div>
+                <div class="carousel-item" data-bs-interval="5000">
+                    <img src="https://imgpile.com/images/D0r4IE.jpg" class="d-block w-100" alt="kids toys" />
+                    <div class="carousel-caption d-none d-md-block">
+                    </div>
+                </div>
+                <div class="carousel-item" data-bs-interval="5000">
+                    <img src="https://imgpile.com/images/D0rnMr.jpg" class="d-block w-100" alt="books and media" />
+                    <div class="carousel-caption d-none d-md-block">
+                    </div>
+                </div>
+                <div class="carousel-item" data-bs-interval="5000">
+                    <img src="https://imgpile.com/images/D0r1AR.jpg" class="d-block w-100" alt="electronics" />
+                    <div class="carousel-caption d-none d-md-block">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /hero_single -->
+<div class="banners" id="banners">
+    <p style="color: white"> Welcome. <span style="color:  white">Before you go could you share honest feedback on any
+            of our products? We'd truely appreciate it. Thanks! </span> </p>
+    <p style="color: white"> Welcome. <span style="color:  white">Before you go could you share honest feedback on any
+            of our products? We'd truely appreciate it. Thanks! </span> </p>
+</div>
+
+<!-- Insert Slider Here -->
+
+<div class="container margin_60_35">
+    <div class="main_title_3" style="margin-bottom: 20px">
+        <h2>Top Categories</h2>
+        <a href="{% url 'all_category' %}">View all</a>
+    </div>
+    <div class="row justify-content-center">
+        <div class="d-flex gap-2">
+        {% for category in categories %}
+            <a class="btn btn-outline-primary" href="/category/{{category.id}}_{{category.slug}}">{{category}}</a>
+        {% endfor %}
+        </div>
+
+    </div>
+    <!-- /row -->
+</div>
+<!-- /container -->
+
+
+
+<!-- Review Section -->
+
+<!-- Latest Reviews Section -->
+<div class="bg_color_1">
+    <div class="container margin_60">
+        <div class="main_title_3">
+            <h2 style="margin-bottom: 20px;">Latest Reviews</h2>
+        </div>
+        <div class="row">
+            {% for r in reviews %}
+            <div class="col-md-4 mb-4">
+                <div class="item">
+                    <div class="review_listing">
+                        <div class="clearfix">
+                            <figure>
+                                <img src="{% static 'images/avatar1.jpg' %}" alt="reviewimage" />
+                            </figure>
+                            <span class="rating">
+                                <i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i
+                                    class="icon_star"></i><i class="icon_star"></i><em>4.50/5.00</em></span>
+
+                        </div>
+                        <p style="font-style: italic; text-align: center">"{{r.text}}"</p>
+                        <h3>
+                            <strong>- {{r.user|capfirst}}</strong>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<!-- /bg_color_1 -->
+
+<div class="call_section_3">
+    <div class="wrapper">
+        <div class="container clearfix">
+            <div class="col-lg-5 col-md-7 float-right">
+                <h3>Let's Help You</h3>
+                <p>
+                    Rating Rocker invites everyone to join our review platform and empower
+                    the community by sharing your valuable experiences. Contribute to
+                    enhancing consumer choices and motivating companies to elevate their
+                    performance. Our mission is to bring people and companies together to
+                    create experiences for everyone.
+                </p>
+
+                <p>
+                    <a class="btn_1 add_top_10 wow bounceIn" href="/all-category" data-wow-delay="0.5s">Join Now!</a>
+                </p>
+            </div>
+        </div>
+        <!-- /container -->
+    </div>
+</div>
+<!-- /call_section -->
+<style>
+    .call_section_3 {
+        background: #051d4d url("https://imgpile.com/images/DwUw8b.jpg") center center no-repeat fixed;
+        background-size: auto;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+
+    .slide-content {
+        position: relative;
+        text-align: center;
+    }
+
+    .slide-content-inner {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    @media screen and (min-width: 700px) {
+        .custom-search-input-2 {
+            border-top-right-radius: 30px;
+            border-bottom-right-radius: 30px;
+            border-top-left-radius: 30px;
+            border-bottom-left-radius: 30px;
+        }
+
+        .custom-search-input-2 input[type="submit"] {
+            border-top-right-radius: 30px;
+            border-bottom-right-radius: 30px;
+        }
+
+        .form-control {
+            border-top-left-radius: 30px;
+            border-bottom-left-radius: 30px;
+        }
+    }
+
+    @media screen and (max-width: 700px) {
+
+        .form-control,
+        .nice-select {
+            border-radius: 33px;
+        }
+
+        .custom-search-input-2 i {
+            margin-right: 26px;
+        }
+
+        [type="submit"] {
+            border-radius: 33px !important;
+        }
+    }
+      html.mm-opened.mm-blocking.mm-background.mm-opening
+    body
+    nav#mm-menu.main-menu.mm-menu.mm-offcanvas.mm-hasnavbar-bottom-1.mm-pagedim-black.mm-theme-dark.mm-opened
+    div.mm-navbars-bottom {
+    display: none !important;
+  }
+</style>
+
+<script>
+    const banner = document.getElementById("banners");
+    const paragraphs = document.querySelectorAll(".banners > p");
+
+    // text animation settings
+    const P1_KEYFRAMES = [{ left: "-100%" }, { left: "0%" }];
+    const P1_TIMING = {
+        fill: "forwards",
+        duration: 20000,
+        iterations: Infinity,
+        easing: "linear"
+    };
+    const P2_KEYFRAMES = [{ left: "0%" }, { left: "100%" }];
+    const P2_TIMING = {
+        fill: "forwards",
+        duration: 20000,
+        iterations: Infinity,
+        easing: "linear"
+    };
+
+    // start animations
+    const P1_ANIMATION = paragraphs[0].animate(P1_KEYFRAMES, P1_TIMING);
+    const P2_ANIMATION = paragraphs[1].animate(P2_KEYFRAMES, P2_TIMING);
+
+    banner.addEventListener("mouseenter", () => {
+        P1_ANIMATION.pause();
+        P2_ANIMATION.pause();
+    });
+
+    banner.addEventListener("mouseleave", () => {
+        P1_ANIMATION.play();
+        P2_ANIMATION.play();
+    });
+
+
+</script>
+
+
+{% endblock %}

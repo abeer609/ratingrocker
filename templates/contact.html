@@ -1,0 +1,225 @@
+{% extends 'base.html' %} {% load static %} {% block content%}
+
+<script>
+    setPageTitle("Rating Rocker - Contact Us");
+  </script>
+<style>
+  .my-cls {
+    margin-top: -5px !important;
+  }
+
+  .box {
+    background-color: black;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .box a {
+    display: inline-block;
+    background-color: gray;
+    padding: 15px;
+    border-radius: 3px;
+  }
+
+  .modal {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    transition: all 0.4s;
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  .content1 {
+    position: absolute;
+    background: lightblue;
+    width: 400px;
+    padding: 1em 2em;
+    border-radius: 4px;
+    text-align: center;
+  }
+  .modal:target {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .box-close {
+    position: absolute;
+    top: 0;
+    right: 15px;
+    color: #fe0606;
+    text-decoration: none;
+    font-size: 30px;
+  }
+</style>
+<section class="hero_single general">
+  <div class="wrapper">
+    <div class="container">
+      <h1>Get in Touch with Rating Rocker</h1>
+      <p>Rating Rocker helps grow your business using customer reviews</p>
+    </div>
+  </div>
+</section>
+
+<div class="bg_color_1">
+  <div class="container margin_tabs">
+    <div id="tabs" class="tabs">
+      <nav>
+        <ul>
+          <li class="tab-current">
+            <a href="#section-1"
+              ><i class="pe-7s-help1 my-cls"></i>Contact Now</a
+            >
+          </li>
+        </ul>
+      </nav>
+      <div class="content">
+        <section id="section-1" class="content-current">
+          <div class="row justify-content-center">
+            <div class="col-lg-8">
+              <div id="message-contact"></div>
+              <form method="post">
+                {% csrf_token %}
+
+                <div class="form-group" id="formname">
+                  {{ form.name.label_tag }} {{ form.name }}
+                </div>
+
+                <div class="form-group" id="formemail">
+                  {{ form.email.label_tag }} {{ form.email }}
+                </div>
+
+                <div class="form-group">
+                  {{ form.subject.label_tag }} {{ form.subject }}
+                </div>
+
+                <div class="form-group" id="formlabel">
+                  {{ form.message.label_tag }} {{ form.message }}
+                </div>
+
+                <button type="submit" class="btn_1 rounded" id="submit-contact">
+                  Submit
+                </button>
+              </form>
+              <div id="popup-box" class="modal">
+                <div class="content1">
+                  <h1 style="color: green">Thank for contacting us!</h1>
+                  <b>
+                    <p>We get back to you soon!</p>
+                  </b>
+                  <a href="#" class="box-close"> × </a>
+                </div>
+              </div>
+              <!--<form method="post">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <button type="submit" class="btn_1 rounded" id="submit-contact">Submit</button>
+                        </form>-->
+            </div>
+          </div>
+          <!-- /row -->
+        </section>
+        <!-- /section -->
+        <section id="section-2" class="">
+          <div class="row justify-content-center">
+            <div class="col-lg-8">
+<!--               <a href="help.html" class="btn_support"
+                >Please first visit our Support Center!</a
+              > -->
+              <div id="message-support"></div>
+              <form
+                method="post"
+                action="assets/support.php"
+                id="support"
+                autocomplete="off"
+              >
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group required">
+                      <input
+                        class="form-control"
+                        type="text"
+                        id="name_support"
+                        name="name_support"
+                        placeholder="Name"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group required">
+                      <input
+                        class="form-control"
+                        type="email"
+                        id="email_support"
+                        name="email_support"
+                        placeholder="Email"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <!-- /row -->
+                <div class="form-group required">
+                  <textarea
+                    class="form-control"
+                    id="message_support"
+                    name="message_support"
+                    style="height: 150px"
+                    placeholder="Support request"
+                  ></textarea>
+                </div>
+                <div class="form-group required">
+                  <input
+                    class="form-control"
+                    type="text"
+                    id="verify_support"
+                    name="verify_support"
+                    placeholder="Are you human? 3 + 1 ="
+                  />
+                </div>
+                <div class="form-group add_top_30 text-center">
+                  <input
+                    type="submit"
+                    value="Submit"
+                    class="btn_1 rounded"
+                    id="submit-support"
+                  />
+                </div>
+              </form>
+            </div>
+          </div>
+          <!-- /row -->
+        </section>
+        <!-- /section -->
+      </div>
+      <!-- /content -->
+    </div>
+    <!-- /tabs -->
+  </div>
+  <!-- /container -->
+</div>
+
+<script>
+  document
+    .getElementById("submit-contact")
+    .addEventListener("click", function () {
+      // Validate the form fields here, for example:
+      var nameField = document.getElementById("id_name").value;
+      var emailField = document.getElementById("id_email").value;
+
+      if (nameField.trim() === "" || emailField.trim() === "") {
+        alert("Please fill in all required fields.");
+      } else {
+        window.location.href = "#popup-box";
+      }
+    });
+</script>
+
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content%}
+
+<div class="container">
+    <form class="form" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn_1 rounded" type="submit">Add Product</button>
+    </form>
+</div>
+
+<style>
+.menu_fixedss{
+    position: inherit;
+    display: flex;
+    justify-content: space-between;
+    background: white;
+    align-items: center;
+}
+#logo{
+    float:unset
+}
+#menu *{
+    color:white
+}
+main{
+    background:white;
+}
+.form{
+    margin:10px 0px
+}
+
+@media screen and (min-width:700px){
+    .form{
+        max-width: 620px;
+        margin: auto;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        padding: 30px;
+    }
+}
+</style>
+
+{% endblock %}
