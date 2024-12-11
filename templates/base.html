@@ -14,6 +14,8 @@
       async
       src="https://www.googletagmanager.com/gtag/js?id={{ gtag_id }}"
     ></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
@@ -430,8 +432,10 @@ html.mm-opened.mm-blocking.mm-background.mm-opening body nav#mm-menu.main-menu.m
     <div id="toTop"></div>
     <!-- Back to top button -->
     <!-- COMMON SCRIPTS -->
+    {% comment %}
     <script src="{% static 'js/common_scripts.js' %}"></script>
     <script src="{% static 'js/functions.js' %}"></script>
+    {% endcomment %}
     <script
       type="text/javascript"
       src="https://s.skimresources.com/js/251873X1735778.skimlinks.js"

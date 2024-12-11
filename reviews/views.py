@@ -59,6 +59,7 @@ def about_us(request):
 def category_products(request,category_id, slug):
     try:
         category = Category.objects.get(id=category_id)
+        
         products = Product.objects.filter(category=category)
         product_count = products.count()
         categories = Category.objects.all()
