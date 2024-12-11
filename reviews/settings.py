@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY", "dljfldjfljdlf34567fhdhf633u3fdjhf")
 # SECRET_KEY = "django-insecure-^eelvbzoh4#8e8e3ka$g751qc8ue_yn=aj-7mfw9+ki&29)-=^"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get("DEBUG", True)
+DEBUG = bool(os.environ.get("DEBUG", True)=='True')
 
 ALLOWED_HOSTS = [
     # "rating-rocker-95835d782983.herokuapp.com",
